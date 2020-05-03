@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/signin.css">
+  <link rel="stylesheet" href="css/login.css">
+  <title>GCHAT - Chat online</title>
+</head>
+<body ng-app="login">
+  <form class="form-signin">
+    <div class="row">
+      <img src="img/eyeglasses.svg" alt="" class="mustache" width="72px" height="72px">
+    </div>
+    <div ng-controller="LoginController">
+      <h1 class="h3 mb-3 font-weight-normal text-center">GCHAT</h1>
+      <div class="row">
+        <label for="nickName" class="sr-only">Nickname</label>
+        <input id="nickName" class="form-control" type="text" ng-model="nickName" placeholder="nickname here..." required autofocus>
+      </div>
+      <div class="row">
+        <label for="room" class="sr-only">Room</label>
+        <select id="rooms" ng-model="room" class="custom-select d-block w-100" required>
+          <option value="Default">Default</option>
+          <option value="Private">Private</option>
+        </select>
+      </div>
+      <div class="row">
+        <div class="newroom">
+          <div class="custom-control custom-checkbox">
+            <input id="addRoom" type="checkbox" class="custom-control-input">
+            <label for="addRoom" class="custom-control-label">New room</label>
+          </div>
+        </div>
+      </div>
+      <div class="newroom">
+        <input id="newRoom" type="input" class="form-control" style="display: none;" ng-model="newRoom" placeholder="new room...">
+        <button type="submit" id="btnNewRom" class="btn btn-primary btn-lg btn-block" style="display: none;" ng-disabled="!newRoom">Add Room</button>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="login()">Sign in</button>
+    </div>
+  </form>
+  <div id="modalRoom" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p>Room 
+          <b>
+            <span id="spNewRoom"></span>
+          </b>
+          add.  
+        </p>
+      </div>
+      <div class="modal-footer">
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <script src="js/lib/jquery-3.3.1.min.js"></script>
+  <script src="js/lib/bootstrap.min.js"></script>
+  <script src="js/lib/angular.js"></script>
+  <script src="js/lib/angular-resource.min.js"></script>
+  <script src="js/service/loginService.js"></script>
+  <script src="js/controller/login.js"></script>
+</body>
+
+</html>
